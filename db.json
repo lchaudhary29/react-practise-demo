@@ -1,0 +1,25 @@
+{
+  "products": [
+    {
+      "id": "jwgpa7lz0ibbglzehwei5",
+      "productName": "Apple",
+      "unitPrice": 20,
+      "quantity": 5,
+      "totalPrice": 100
+    },
+    {
+      "id": "ogtapaczxejn0t41lgnmk",
+      "productName": "Banana",
+      "quantity": 4,
+      "unitPrice": 20,
+      "totalPrice": 80
+    },
+    {
+      "id": "41zmyl4akmvvfogb922lv",
+      "productName": "Orange",
+      "quantity": 5,
+      "unitPrice": 5,
+      "totalPrice": 25
+    }
+  ]
+}
