@@ -3,7 +3,6 @@ import logo from "./logo.svg";
 import "./App.css";
 import Product from "./components/product/product";
 import Container from "react-bootstrap/Container";
-import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Products from "./components/products/products";
 import NotFound from "./not-found";
