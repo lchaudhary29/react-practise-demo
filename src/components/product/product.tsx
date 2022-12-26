@@ -100,6 +100,7 @@ const Product = (props: Props) => {
       onSubmit={onsubmit}
       initialValues={product}
       enableReinitialize={true}
+      validateOnChange={false}
     >
       {({
         handleSubmit,
@@ -135,7 +136,7 @@ const Product = (props: Props) => {
                 <Form.Control
                   type="number"
                   name="quantity"
-                  value={values.quantity ?? ""}
+                  value={values.quantity}
                   onChange={(e) => {
                     handleChange(e);
                     values.totalPrice = values.unitPrice
@@ -155,7 +156,7 @@ const Product = (props: Props) => {
                   type="number"
                   placeholder="Unit Price"
                   name="unitPrice"
-                  value={values.unitPrice ?? ""}
+                  value={values.unitPrice}
                   onChange={(e) => {
                     handleChange(e);
                     values.totalPrice = values.quantity
