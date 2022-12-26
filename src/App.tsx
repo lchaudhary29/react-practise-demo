@@ -6,6 +6,7 @@ import Container from "react-bootstrap/Container";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Products from "./components/products/products";
 import NotFound from "./not-found";
+import Layout from "./layout";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
       <main>
         <Container>
           <BrowserRouter>
-            {/* <Layout></Layout> */}
+            <Layout></Layout>
             <Routes>
               <Route path="/" element={<Products />} />
               <Route path="/product" element={<Product />}>
