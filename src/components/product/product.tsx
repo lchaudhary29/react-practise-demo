@@ -31,7 +31,7 @@ const defaultProduct: IProduct = {
   totalPrice: 0,
 };
 
-const generateQuickGuid = () => {
+export const generateQuickGuid = () => {
   return (
     Math.random().toString(36).substring(2, 15) +
     Math.random().toString(36).substring(2, 15)
@@ -57,6 +57,7 @@ const Product = (props: Props) => {
   useEffect(() => {
     if (!id) {
       defaultProduct.id = generateQuickGuid();
+      setProduct(defaultProduct);
     } else {
       axios.get(`http://localhost:4000/products/${id}`).then((response) => {
         setProduct(response.data);

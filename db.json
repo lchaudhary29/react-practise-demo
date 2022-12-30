@@ -1,13 +1,6 @@
 {
   "products": [
     {
-      "id": "jwgpa7lz0ibbglzehwei5",
-      "productName": "Apple",
-      "unitPrice": 20,
-      "quantity": 5,
-      "totalPrice": 100
-    },
-    {
       "id": "ogtapaczxejn0t41lgnmk",
       "productName": "Banana",
       "quantity": 4,
@@ -18,22 +11,8 @@
       "id": "41zmyl4akmvvfogb922lv",
       "productName": "Orange",
       "quantity": 5,
-      "unitPrice": 5,
-      "totalPrice": 25
-    },
-    {
-      "id": "56znojc28tueqx4fjccpl5",
-      "productName": "Chikoo",
-      "quantity": 5,
-      "unitPrice": 10,
-      "totalPrice": 50
-    },
-    {
-      "id": "b5ec1olrd2stpyon8a5fps",
-      "productName": "Papaya",
-      "quantity": 2,
-      "unitPrice": 30,
-      "totalPrice": 60
+      "unitPrice": 6,
+      "totalPrice": 30
     }
   ]
 }

@@ -5,7 +5,7 @@
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
+    "@testing-library/user-event": "^14.4.3",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.10",
     "@types/react": "^18.0.26",
@@ -13,6 +13,7 @@
     "axios": "^1.2.1",
     "bootstrap": "^5.2.3",
     "formik": "^2.2.9",
+    "msw": "^0.49.2",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.0",
     "react-dom": "^18.2.0",
@@ -49,5 +50,10 @@
   "devDependencies": {
     "json-server": "^0.17.1",
     "react-router-dom": "^6.6.1"
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "node_modules/(?!axios)/"
+    ]
   }
 }
