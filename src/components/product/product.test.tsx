@@ -1,7 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import user from "@testing-library/user-event";
-import Product, { generateQuickGuid } from "./product";
+import Product from "./product";
 import { BrowserRouter } from "react-router-dom";
+import { generateQuickGuid } from "../../hooks/useProduct";
 
 const mockedUsedNavigate = jest.fn();
 const mockedUseLocation = jest.fn();

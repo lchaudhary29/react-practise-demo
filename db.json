@@ -8,11 +8,18 @@
       "totalPrice": 80
     },
     {
-      "id": "41zmyl4akmvvfogb922lv",
+      "id": "4fwwffwxuobm9jm7lrgs6r",
+      "productName": "Apple",
+      "quantity": 4,
+      "unitPrice": 20,
+      "totalPrice": 80
+    },
+    {
+      "id": "21wqyp8nhn5snebffydlwk",
       "productName": "Orange",
       "quantity": 5,
-      "unitPrice": 6,
-      "totalPrice": 30
+      "unitPrice": 10,
+      "totalPrice": 50
     }
   ]
 }

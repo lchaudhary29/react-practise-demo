@@ -3,11 +3,11 @@ import Form from "react-bootstrap/Form";
 import { Formik } from "formik";
 import { object, string, number } from "yup";
 import { IProduct } from "../../models/product";
-import { useEffect, useState } from "react";
 import Stack from "react-bootstrap/Stack";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import { State } from "../../enum/state";
+import useProduct from "../../hooks/useProduct";
 
 const schema = object().shape({
   productName: string()
@@ -23,73 +23,38 @@ const schema = object().shape({
 
 type Props = {};
 
-const defaultProduct: IProduct = {
-  id: "",
-  productName: "",
-  quantity: 0,
-  unitPrice: 0,
-  totalPrice: 0,
-};
-
-export const generateQuickGuid = () => {
-  return (
-    Math.random().toString(36).substring(2, 15) +
-    Math.random().toString(36).substring(2, 15)
-  );
-};
-const getStatusLabel = (status: State): string => {
-  switch (status) {
-    case State.DETAIL:
-      return "Close";
-    case State.DELETE:
-      return "Delete";
-    default:
-      return "Save";
-  }
-};
-
 const Product = (props: Props) => {
-  const [product, setProduct] = useState<IProduct>(defaultProduct);
   const navigate = useNavigate();
   const { state } = useLocation();
   const { id, productState } = state || {};
 
-  useEffect(() => {
-    if (!id) {
-      defaultProduct.id = generateQuickGuid();
-      setProduct(defaultProduct);
-    } else {
-      axios.get(`http://localhost:4000/products/${id}`).then((response) => {
-        setProduct(response.data);
-      });
-    }
-  }, [id]);
+  const {
+    product,
+    setProduct,
+    addProduct,
+    updateProduct,
+    deleteProduct,
+    getStatusLabel,
+  } = useProduct({
+    id,
+  });
 
-  const onsubmit = (product: IProduct) => {
-    setProduct(product);
-
+  const onsubmit = async (product: IProduct) => {
     if (productState === State.ADD) {
-      axios.post("http://localhost:4000/products", product).then((response) => {
-        if (response.status === 201) {
-          navigate("/");
-        }
-      });
+      const status = await addProduct(product);
+      if (status === 201) {
+        navigate("/");
+      }
     } else if (productState === State.EDIT) {
-      axios
-        .put(`http://localhost:4000/products/${product.id}`, product)
-        .then((response) => {
-          if (response.status === 200) {
-            navigate("/");
-          }
-        });
+      const status = await updateProduct(product);
+      if (status === 200) {
+        navigate("/");
+      }
     } else if (productState === State.DELETE) {
-      axios
-        .delete(`http://localhost:4000/products/${product.id}`)
-        .then((response) => {
-          if (response.status === 200) {
-            navigate("/");
-          }
-        });
+      const status = await deleteProduct(product.id);
+      if (status === 200) {
+        navigate("/");
+      }
     } else {
       navigate("/");
     }
